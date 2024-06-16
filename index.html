@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宇洋的网站</title>
+
+    <style>
+
+        /* 添加控制音乐播放的按钮样式 */
+        .music-control {
+            float: right;
+            margin-left: 16px;
+            cursor: pointer;
+            top: 0; /* 顶部对齐 */
+        }
+        /* 重置默认边距 */
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+        /* 网站的基本样式 */
+        body {
+            font-family: '站酷快乐体2016修订版', sans-serif;
+            background: linear-gradient(to right, #ff9e9e, #e6d996); /* 渐变背景 */
+            display: flex; /* 使用flexbox布局 */
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中 */
+            height: 100vh; /* 设置高度为视口高度 */
+        }
+        .container {
+            max-width: 1200px;
+            width: 100%; /* 设置宽度为100%，以便在较小屏幕上也能自适应 */
+            padding: 20px;
+        }
+        /* 头部样式 */
+        header {
+            text-align: center;
+            padding: 20px 0;
+        }
+        /* 滚动字幕样式 */
+        .scrolling-text {
+            color: #333;
+            font-size: 20px;
+            overflow: hidden;
+            position: relative;
+            height: 40px;
+            white-space: nowrap;
+        }
+        .scrolling-text span {
+            position: absolute;
+            width: 100%;
+            animation: scrolling 10s linear infinite;
+        }
+        @keyframes scrolling {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        /* 详细介绍栏样式 */
+        .introduction {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        /* 图片展示样式 */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .gallery img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 8px;/* 圆角化 */
+        }
+        /* 视频样式 */
+        .video-container {
+            margin: 20px auto; /* 水平居中 */
+            display: flex; /* 使用flexbox布局 */
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中 */
+
+        }
+        .video-container video {
+            width: 100%;
+            max-width: 1000px; /* 您可以根据需要调整最大宽度 */
+            height: auto;
+            border-radius: 20px;
+        }
+        /* 页尾样式 */
+        footer {
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        /* 清华大学官网导航栏样式 */
+        .navbar {
+            background-color: rgba(243, 185, 179, 0.82); /* 导航栏背景颜色 */
+            overflow: hidden; /* 防止导航栏内容溢出 */
+            position: fixed; /* 固定位置 */
+            width: 100%; /* 宽度为100% */
+            top: 0; /* 顶部对齐 */
+            z-index: 100; /* 确保导航栏在内容之上 */
+            font-size: 20px; /* 字体大小 */
+            color: #f2f2f2; /* 字体颜色 */
+        }
+
+        .navbar a {
+            float: left; /* 使链接水平排列 */
+            display: block; /* 将链接设为块级元素，以便设置宽高 */
+            color: white; /* 链接文字颜色 */
+            text-align: center; /* 文字居中 */
+            padding: 14px 16px; /* 填充空间 */
+            text-decoration: none; /* 去除下划线 */
+        }
+
+        .navbar a:hover {
+            background-color: #ed9292; /* 鼠标悬停时背景颜色 */
+            color: #e6d996; /* 鼠标悬停时文字颜色 */
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <div class="navbar">
+        <!-- 添加控制音乐播放的按钮 -->
+        <div class="music-control" id="musicControl">
+            <img src="play.png" id="musicIcon" width="45" height="45" alt="音乐控制">
+        </div>
+        <a href="javascript:void(0);" id="homeLink">首页</a>
+        <a href="javascript:void(0);" id="IntroduceLink">介绍</a>
+        <a href="javascript:void(0);" id="photoLink">图片</a>
+        <a href="javascript:void(0);" id="birthdayLink">生日</a>
+        <!-- 省略了其他导航链接 -->
+    </div>
+
+    <!-- 背景音乐 -->
+    <audio id="backgroundMusic" loop>
+        <source src="徐梦圆 - China-E.mp3" type="audio/mpeg">
+        您的浏览器不支持音频元素。
+    </audio>
+
+    <!-- 内容部分，可以根据需要添加 -->
+    <div class="container">
+        <header>
+            <h1>宇洋网站</h1>
+        </header>
+        <div class="scrolling-text">
+            <span>欢迎来到宇洋网站，探索我的…………！</span>
+        </div>
+        <div class="introduction">
+            <h2>宇洋介绍</h2>
+            <p>宇洋是一个很帅的人。</p>
+        </div>
+
+        <div class="gallery">
+            <img src="旗峰学校.jpg" alt="图片1">
+            <img src="zsxx.jpg" alt="图片2">
+            <img src="dctx.jpg" alt="图片3">
+            <!-- 更多图片 -->
+        </div>
+
+         <script>
+    // JavaScript 控制音乐播放与暂停
+    document.addEventListener('DOMContentLoaded', function() {
+        var music = document.getElementById('backgroundMusic');
+        var musicControl = document.getElementById('musicControl');
+        var musicIcon = document.getElementById('musicIcon');
+
+        // 页面加载完成后自动播放音乐
+        music.play();
+
+        musicControl.addEventListener('click', function() {
+            if (music.paused) {
+                music.play();
+                musicIcon.src = 'play.png'; // 更换为暂停图标
+            } else {
+                music.pause();
+                musicIcon.src = 'pause.png'; // 更换为播放图标
+            }
+        });
+        // 为“生日”链接添加点击事件处理程序
+        document.getElementById('birthdayLink').addEventListener('click', function() {
+            window.location.href = 'birthday.html';
+        });
+        // 为“图片”链接添加点击事件处理程序
+        document.getElementById('photoLink').addEventListener('click', function() {
+            window.location.href = 'photo.html';
+        });
+        // 为“首页”链接添加点击事件处理程序
+        document.getElementById('homeLink').addEventListener('click', function() {
+            window.location.href = 'index.html';
+        });
+        // 为“介绍”链接添加点击事件处理程序
+        document.getElementById('IntroduceLink').addEventListener('click', function() {
+            window.location.href = 'Introduction.html';
+        });
+    });
+</script>
+
+        <footer>
+            <p>&copy; 2023 宇洋. All rights reserved. | 联系我们: contact@yuyangdaily.com</p>
+        </footer>
+    </div>
+</body>
+</html>
